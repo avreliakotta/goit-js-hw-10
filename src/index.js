@@ -25,20 +25,24 @@ function hideCatInfo() {
 function showCatInfo() {
   catInfo.classList.remove('hidden');
 }
+
 function hideError() {
   error.classList.add('hidden');
 }
 function showError() {
   error.classList.remove('hidden');
 }
-hideCatInfo();
-hideError();
-showLoader();
+function clearCatInfo() {
+  catInfo.innerHTML = '';
+}
 hideBreedSelect();
+
+hideError();
+
+showLoader();
+
 fetchBreeds()
   .then(response => {
-    // const select = document.querySelector('.breed-select');
-
     const breeds = response.data;
     breeds.map(breed => {
       const options = breeds.map(breed => {
@@ -50,6 +54,9 @@ fetchBreeds()
     showBreedSelect();
   })
   .catch(error => {
+    clearCatInfo();
+
+    hideBreedSelect();
     Notiflix.Notify.failure(
       'Oops! Something went wrong! Try reloading the page!'
     );
@@ -60,12 +67,11 @@ fetchBreeds()
 select.addEventListener('change', () => {
   const breedId = select.value;
   showLoader();
-  hideCatInfo();
+
+  clearCatInfo();
   fetchCatByBreed(breedId)
     .then(data => {
       hideLoader();
-      showCatInfo();
-
       catInfo.innerHTML = `
         <img src="${data[0].url}" class="image-cat">
         <div class="content">
@@ -76,6 +82,8 @@ select.addEventListener('change', () => {
       `;
     })
     .catch(error => {
+      clearCatInfo();
+      hideBreedSelect();
       Notiflix.Notify.failure(
         'Oops! Something went wrong! Try reloading the page!'
       );

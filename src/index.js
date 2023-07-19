@@ -19,12 +19,6 @@ function hideBreedSelect() {
 function showBreedSelect() {
   select.classList.remove('hidden');
 }
-function hideCatInfo() {
-  catInfo.classList.add('hidden');
-}
-function showCatInfo() {
-  catInfo.classList.remove('hidden');
-}
 
 function hideError() {
   error.classList.add('hidden');

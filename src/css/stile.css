@@ -44,3 +44,6 @@ body {
   line-height: 1.2;
   color: rgb(38, 38, 63);
 }
+.loader {
+  margin-top: 20px;
+}

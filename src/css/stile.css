@@ -2,7 +2,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+p {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -14,15 +15,32 @@ body {
 }
 .cat-info {
   display: flex;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 30px;
+  margin-top: 30px;
 }
 .content {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   width: 300px;
 }
 .image-cat {
   width: 500px;
   height: 350px;
+}
+.classItems {
+  border: 2px solid rgb(25, 25, 231);
+  border-radius: 5px;
+  outline: none;
+  width: 300px;
+  height: 40px;
+  color: rgb(38, 38, 63);
+  font-size: 18px;
+  padding-right: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.text {
+  font-size: 18px;
+  line-height: 1.2;
+  color: rgb(38, 38, 63);
 }
